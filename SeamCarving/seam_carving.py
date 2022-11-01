@@ -243,3 +243,15 @@ class SeamCarvingSimple(SeamCarvingBase):
 
                 energy_image[i, j] = np.mean(data)
         return energy_image
+
+
+class SeamCarvingGradientMagnitude(SeamCarvingBase):
+    name = 'gradient_magnitude'
+
+    def calculate_energy(self, gray_image) -> np.ndarray:
+        # 计算梯度
+        gradient_x = cv2.Sobel(gray_image, cv2.CV_64F, 1, 0, ksize=3)
+        gradient_y = cv2.Sobel(gray_image, cv2.CV_64F, 0, 1, ksize=3)
+        # 计算梯度幅值
+        gradient_magnitude = np.sqrt(np.square(gradient_x) + np.square(gradient_y))
+        return gradient_magnitude
