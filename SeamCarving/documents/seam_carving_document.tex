@@ -44,8 +44,11 @@
 
 % Document
 \begin{document}
+    \maketitle
+    \tableofcontents
 
-\section{算法简介}
+    \section{算法简介}
+    \subsection{删除算法}
     Seam Carving算法不同于传统的图像分割算法，其主要是基于图像内容感知的图像感知算法。其主要思想是通过动态规划的方式，找到图像中的能量最小的路径，然后将其删除，从而达到图像缩放的目的。其算法的主要步骤如下：
     \begin{enumerate}
         \item 计算图像的能量矩阵 \label{em:1}
@@ -54,9 +57,17 @@
         \item 重复上述步骤，直到达到目标图像的大小
     \end{enumerate}
 
-    上述步骤中的~\ref{em:1}可以使用多种方式来计算图像的能量矩阵，本文中使用了多种计算能量
+    上述步骤中的~\ref{em:1}可以使用多种方式来计算图像的能量矩阵，本文中使用了3种计算能量计算能量的方法，包括：
+    \begin{enumerate}
+        \item 简单算法(个人理解，即将当前像素的上下左右像素的差值取平均数作为当前像素的能量)
+        \item Sobel算子(其主要原理是使用了图像梯度)
+        \item Forward Energy算法~\cite{rubinstein2008improved}
+    \end{enumerate}
 
 
 
+
+    \bibliography{main}
+    \bibliographystyle{plain}
 
 \end{document}
