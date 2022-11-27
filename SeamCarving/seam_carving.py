@@ -341,7 +341,6 @@ class SeamCarvingBase:
             pass
 
 
-
 # 能量计算简易版(这里计算能量主要是用当前像素的灰度值与上下左右4个像素的灰度值的差值的均值)
 class SeamCarvingSimple(SeamCarvingBase):
     name = 'simple'
